@@ -29,7 +29,7 @@ module.exports = (env, argv) => ({
         {
             react: 'react'
         },
-        /^ol$|^ol\/.*$/i
+        ///^ol/i
     ],
     plugins: argv.mode === 'development' ? [
         new HtmlWebpackPlugin({
