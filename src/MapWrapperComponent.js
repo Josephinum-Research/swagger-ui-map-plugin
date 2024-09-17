@@ -10,7 +10,7 @@ export default (Original, system) => (props) => {
     const React = system.React;
 
     const mapContainer = React.createRef();
-    const isGeoJson = props.contentType && props.contentType.includes('application/geo+json');
+    const isGeoJson = props.contentType && (props.contentType.includes('application/json') || props.contentType.includes('application/geo+json'));
 
     React.useEffect(() => {
         if (isGeoJson) {
