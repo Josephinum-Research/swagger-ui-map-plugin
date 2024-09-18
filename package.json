@@ -1,13 +1,13 @@
 {
   "name": "swagger-ui-map-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "webpack serve --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Winterspacher Michael",
+  "author": "Josephinum Research",
   "license": "ISC",
   "description": "SwaggerUI plugin to draw supported responses on a map",
   "keywords": [
