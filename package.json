@@ -10,9 +10,10 @@
     "dev": "webpack serve --mode=development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Michael Winterspacher",
+  "author": "Winterspacher Michael",
   "license": "ISC",
-  "description": "",
+  "description": "Plugin to draw supported results on a map in the SwaggerUI",
+  "keywords": ["swagger-ui", "plugin", "map"],
   "devDependencies": {
     "@babel/cli": "^7.25.6",
     "@babel/core": "^7.25.2",
