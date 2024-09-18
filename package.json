@@ -12,8 +12,12 @@
   },
   "author": "Winterspacher Michael",
   "license": "ISC",
-  "description": "Plugin to draw supported results on a map in the SwaggerUI",
-  "keywords": ["swagger-ui", "plugin", "map"],
+  "description": "SwaggerUI plugin to draw results on a map",
+  "keywords": [
+    "swagger-ui",
+    "plugin",
+    "map"
+  ],
   "devDependencies": {
     "@babel/cli": "^7.25.6",
     "@babel/core": "^7.25.2",
@@ -21,10 +25,13 @@
     "@babel/preset-react": "^7.24.7",
     "babel-loader": "^9.2.1",
     "html-webpack-plugin": "^5.6.0",
-    "react": "^18.3.1",
     "ol": "^10.1.0",
+    "react": "^18.3.1",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
+  },
+  "dependencies": {
+    "lodash.merge": "^4.6.2"
   }
 }

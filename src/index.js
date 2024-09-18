@@ -1,10 +1,14 @@
-import MapWrapperComponent from "./MapWrapperComponent";
+import WrapperComponent from "./WrapperComponent";
+import Config from "./Config";
+import merge from "lodash.merge";
 
 
-const SwaggerUiMapPlugin = (/*system*/) => {
+const SwaggerUiMapPlugin = (config={}) => (/*system*/) => {
+    config = merge(new Config(), config);
+
     return {
         wrapComponents: {
-            responseBody: MapWrapperComponent
+            responseBody: WrapperComponent(config)
         }
     }
 };
