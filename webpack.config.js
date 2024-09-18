@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = (env, argv) => ({
     entry: './src/index.js',
     mode: 'production',
-    devtool: 'source-map',
+    devtool: argv.mode === 'development' ? 'source-map' : false,
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'swagger-ui-map-plugin.js',
