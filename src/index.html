@@ -20,6 +20,7 @@
                 SwaggerUiMapPlugin({
                     renderer: {
                         geojson: {
+                            activationFnc: props => ['application/geo+json', 'application/json'].includes(props.contentType),
                             config: {
                                 defaultStrokeWidth: '4'
                             }
