@@ -25,11 +25,17 @@ module.exports = (env, argv) => ({
             },
         ],
     },
+    externalsType: 'window',
     externals: [
         {
-            react: 'react'
+            react: 'react',
         },
-        ///^ol/i
+        ({ context, request }, callback) => {
+            if (/^ol\/|^ol$/i.test(request)) {
+                return callback(null, request.split('/'));
+            }
+            callback();
+        },
     ],
     plugins: argv.mode === 'development' ? [
         new HtmlWebpackPlugin({
