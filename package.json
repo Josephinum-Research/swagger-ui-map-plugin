@@ -1,10 +1,7 @@
 {
   "name": "swagger-ui-map-plugin",
   "version": "1.0.0",
-  "main": "dist/swagger-ui-map-plugin.js",
-  "directories": {
-    "example": "example"
-  },
+  "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode=production",
     "dev": "webpack serve --mode=development",
@@ -12,12 +9,16 @@
   },
   "author": "Winterspacher Michael",
   "license": "ISC",
-  "description": "SwaggerUI plugin to draw results on a map",
+  "description": "SwaggerUI plugin to draw supported responses on a map",
   "keywords": [
     "swagger-ui",
     "plugin",
     "map"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Josephinum-Research/swagger-ui-map-plugin"
+  },
   "devDependencies": {
     "@babel/cli": "^7.25.6",
     "@babel/core": "^7.25.2",
