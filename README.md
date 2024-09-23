@@ -9,7 +9,7 @@ SwaggerUI plugin to show GeoJson responses on a map
 1. Add `Openlayers` and this plugin to your swaggerui index file
 ```html
 <script src="https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js" crossorigin></script>
-<script src="https://cdn.jsdelivr.net/npm/swagger-ui-map-plugin/dist/swagger-ui-map-plugin.js" crossorigin></script>
+<script src="https://cdn.jsdelivr.net/npm/@josephinumresearch/swagger-ui-map-plugin/dist/swagger-ui-map-plugin.js" crossorigin></script>
 ```
 2. Register `SwaggerUiMapPlugin()`
 ```javascript
@@ -28,4 +28,4 @@ SwaggerUIBundle({
 
 Run `npm install` and then `npm run dev`.
 
-For deployment, build the `dist/swagger-ui-map-plugin.js` with `npm run build`
+For deployment, build the `dist/swagger-ui-map-plugin.js` with `npm run build` and run `npm publish --access public` to publish.

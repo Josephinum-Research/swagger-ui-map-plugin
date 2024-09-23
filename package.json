@@ -1,5 +1,5 @@
 {
-  "name": "swagger-ui-map-plugin",
+  "name": "@josephinumresearch/swagger-ui-map-plugin",
   "version": "1.0.1",
   "main": "src/index.js",
   "scripts": {
