@@ -6,13 +6,12 @@ SwaggerUI plugin to show GeoJson responses on a map
 
 ## Usage
 
-1. Publish all files from `dist/`
-2. Add `Openlayers` and this plugin to your swaggerui index file
+1. Add `Openlayers` and this plugin to your swaggerui index file
 ```html
 <script src="https://cdn.jsdelivr.net/npm/ol@v10.1.0/dist/ol.js" crossorigin></script>
-<script src="<published-dist-folder>/swagger-ui-map-plugin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swagger-ui-map-plugin/dist/swagger-ui-map-plugin.js" crossorigin></script>
 ```
-3. Register `SwaggerUiMapPlugin()`
+2. Register `SwaggerUiMapPlugin()`
 ```javascript
 SwaggerUIBundle({
     ...
@@ -22,7 +21,7 @@ SwaggerUIBundle({
     ...
 });
 ```
-4. Execute a request whose response is an `application/geo-json`
+3. Execute a request whose response is an `application/geo+json`
 
 
 ## Dev
