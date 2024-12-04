@@ -5,18 +5,21 @@ import TileLayer from "ol/layer/Tile";
 
 export default (config) => (Original, system) => (props) => {
     const React = system.React;
-
+    const mapRenderer = Object.values(config.renderer).filter(f => f.activationFnc(props));
+    const isActivated = mapRenderer.length > 0;
+    const [showMap, setShowMap] = React.useState(false)
     const mapContainer = React.createRef();
-    const renderer = Object.values(config.renderer).filter(f => f.activationFnc(props));
-    const isMapVisible = renderer.length > 0;
 
-    if (isMapVisible) {
+    if (isActivated) {
         React.useEffect(() => {
+            setShowMap(true);
+
             const rasterLayer = new TileLayer({
                 source: new OSM(),
             });
 
-            const olMap = new OlMap({
+            console.log(mapContainer.current);
+            const map = new OlMap({
                 layers: [rasterLayer],
                 target: mapContainer.current,
                 view: new View({
@@ -25,16 +28,25 @@ export default (config) => (Original, system) => (props) => {
                 }),
             });
 
-            renderer.forEach(f => {
-                import('./formats/' + f.format).then(r => r.default(olMap, props.content, f.config));
-            })
-        }, []);
+            Promise.all(mapRenderer.map(f => {
+                return import('./formats/' + f.format).then(r => r.default(map, props.content, f.config));
+            })).catch(error => {
+                console.error(error);
+                map.setTarget(null);
+                setShowMap(false);
+            });
+
+            return () => {
+                map.setTarget(null);
+                setShowMap(false);
+            }
+        }, [props.content]);
     }
 
     return (
         <div>
-            {isMapVisible && (
-                <div style={{height: config.mapHeight, marginBottom: '10px'}}>
+            {isActivated && (
+                <div style={{display: showMap ? 'block' : 'none', height: config.mapHeight, marginBottom: '10px'}}>
                     <div
                         ref={mapContainer}
                         style={{width: '100%', height: '100%'}}

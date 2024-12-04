@@ -34,5 +34,7 @@ export default (
     });
 
     olMap.addLayer(layer);
-    olMap.getView().fit(source.getExtent());
+    setTimeout(() => {
+        olMap.getView().fit(source.getExtent());
+    }, 100);
 }
