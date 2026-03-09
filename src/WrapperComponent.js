@@ -10,38 +10,42 @@ export default (config) => (Original, system) => (props) => {
     const [showMap, setShowMap] = React.useState(false)
     const mapContainer = React.createRef();
 
-    if (isActivated) {
-        React.useEffect(() => {
-            setShowMap(true);
 
-            const rasterLayer = new TileLayer({
-                source: new OSM(),
-            });
+    React.useEffect(() => {
+        if (!isActivated) {
+            setShowMap(false);
+            return;
+        }
+        setShowMap(true);
 
-            console.log(mapContainer.current);
-            const map = new OlMap({
-                layers: [rasterLayer],
-                target: mapContainer.current,
-                view: new View({
-                    center: [0, 0],
-                    zoom: 2,
-                }),
-            });
+        const rasterLayer = new TileLayer({
+            source: new OSM(),
+        });
 
-            Promise.all(mapRenderer.map(f => {
-                return import('./formats/' + f.format).then(r => r.default(map, props.content, f.config));
-            })).catch(error => {
-                console.error(error);
-                map.setTarget(null);
-                setShowMap(false);
-            });
+        console.log(mapContainer.current);
+        const map = new OlMap({
+            layers: [rasterLayer],
+            target: mapContainer.current,
+            view: new View({
+                center: [0, 0],
+                zoom: 2,
+            }),
+        });
 
-            return () => {
-                map.setTarget(null);
-                setShowMap(false);
-            }
-        }, [props.content]);
-    }
+        Promise.all(mapRenderer.map(f => {
+            return import('./formats/' + f.format).then(r => r.default(map, props.content, f.config));
+        })).catch(error => {
+            console.error(error);
+            map.setTarget(null);
+            setShowMap(false);
+        });
+
+        return () => {
+            map.setTarget(null);
+            setShowMap(false);
+        }
+    }, [props.content]);
+
 
     return (
         <div>
