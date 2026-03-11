@@ -1,0 +1,1 @@
+"use strict";(this.webpackChunkswagger_ui_map_plugin=this.webpackChunkswagger_ui_map_plugin||[]).push([[424],{424:function(e,u,n){n.d(u,{default:function(){return a}});var r=n(3075),t=n(2132);class a extends t.A{decodeBlock(e){return(0,r.UD)(new Uint8Array(e)).buffer}}}}]);
