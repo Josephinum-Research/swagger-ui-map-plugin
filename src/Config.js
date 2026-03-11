@@ -11,6 +11,13 @@ export default class Config {
                 defaultStrokeWidth: 1,
                 defaultFillColor: 'black',
             }
+        },
+        'geotiff': {
+            activationFnc: props => ['image/tiff', 'image/tif', 'image/tiff-fx'].includes(props.contentType),
+            format: 'GeoTiff',
+            config: {
+                convertToRGB: 'auto',
+            }
         }
     }
 }
