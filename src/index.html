@@ -24,6 +24,14 @@
                             config: {
                                 defaultStrokeWidth: '4'
                             }
+                        },
+                        geotiff: {
+                            activationFnc: props => ['image/tiff', 'image/tif'].includes(props.contentType),
+                            format: 'GeoTiff',
+                            config: {
+                                convertToRGB: 'auto',
+                                showValuesOnHover: true
+                            }
                         }
                     }
                 })

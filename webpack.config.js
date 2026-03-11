@@ -31,7 +31,11 @@ module.exports = (env, argv) => ({
             react: 'react',
         },
         ({ context, request }, callback) => {
-            if (/^ol\/|^ol$/i.test(request)) {
+            if (/^ol\//i.test(request)) {
+                const path = request.replace(/^ol\//, '');
+                if (path.startsWith('source/GeoTIFF') || path.startsWith('layer/WebGLTile')) {
+                    return callback();
+                }
                 return callback(null, request.split('/'));
             }
             callback();
